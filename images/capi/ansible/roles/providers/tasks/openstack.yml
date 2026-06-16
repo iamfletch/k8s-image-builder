@@ -33,7 +33,7 @@
   register: provider_disable_hv_kvp_daemon
   failed_when:
     - provider_disable_hv_kvp_daemon.failed
-    - "'Could not find the requested service hv-kvp-daemon' not in (provider_disable_hp_kvp_daemon.msg | default(''))"
+    - "'Could not find the requested service hv-kvp-daemon' not in (provider_disable_hv_kvp_daemon.msg | default(''))"
   when: ansible_facts['os_family'] == "Debian"
 
 - name: Ensure networkd-dispatcher is installed
