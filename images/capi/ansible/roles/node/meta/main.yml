@@ -28,7 +28,7 @@ dependencies:
   - role: setup
     vars:
       rpms: "{{ common_rpms }}"
-      debs: "{{ common_debs }}"
+      debs: "{{ common_debs + lookup('vars', 'common_' + build_target + '_debs_arm64', default=[]) }}"
     when: >
       ansible_facts['architecture'] == "aarch64"
         and ansible_facts['distribution'] not in ["VMware Photon OS", "Amazon"]
