@@ -404,8 +404,9 @@ ubuntu:
         title: "Check exact for the contains in /etc/cloud/cloud.cfg.d/15_azure-vnet.cfg"
     package:
       open-vm-tools:
-      linux-cloud-tools-virtual:
       linux-tools-virtual:
+    package-x86:
+      linux-cloud-tools-virtual:
     service:
       chrony:
         enabled: true
@@ -431,8 +432,9 @@ ubuntu:
         timeout: 0
   gcp:
     package:
-      linux-cloud-tools-virtual:
       linux-tools-virtual:
+    package-x86:
+      linux-cloud-tools-virtual:
     command:
       find -L /bin -maxdepth 1 -type f -executable -printf "%f\n" | grep -Fx 'gcloud':
         exit-status: 0
@@ -445,32 +447,35 @@ ubuntu:
     command:
   outscale:
     package:
-      linux-cloud-tools-virtual:
       linux-tools-virtual:
+    package-x86:
+      linux-cloud-tools-virtual:
   ova:
     service:
       networkd-dispatcher:
         enabled: true
         running: true
     package:
-      linux-cloud-tools-virtual:
       linux-tools-virtual:
       open-vm-tools:
       cloud-guest-utils:
       cloud-initramfs-copymods:
       cloud-initramfs-dyn-netconf:
+    package-x86:
+      linux-cloud-tools-virtual:
   maas:
     service:
       networkd-dispatcher:
         enabled: true
         running: true
     package:
-      linux-cloud-tools-virtual:
       linux-tools-virtual:
       open-vm-tools:
       cloud-guest-utils:
       cloud-initramfs-copymods:
       cloud-initramfs-dyn-netconf:
+    package-x86:
+      linux-cloud-tools-virtual:
   maas-arm64:
     service:
       networkd-dispatcher:
@@ -488,12 +493,13 @@ ubuntu:
         enabled: true
         running: true
     package:
-      linux-cloud-tools-virtual:
       linux-tools-virtual:
       open-vm-tools:
       cloud-guest-utils:
       cloud-initramfs-copymods:
       cloud-initramfs-dyn-netconf:
+    package-x86:
+      linux-cloud-tools-virtual:
   raw:
     package:
       cloud-guest-utils:
@@ -503,7 +509,6 @@ ubuntu:
       linux-tools-generic:
   nutanix:
     package:
-      linux-cloud-tools-virtual:
       linux-tools-virtual:
       cloud-guest-utils:
       cloud-initramfs-copymods:
@@ -512,6 +517,8 @@ ubuntu:
       xfsprogs:
       mdadm:
       nfs-common:
+    package-x86:
+      linux-cloud-tools-virtual:
     service:
       iscsid:
         enabled: true
@@ -531,12 +538,13 @@ ubuntu:
         enabled: true
         running: true
     package:
-      linux-cloud-tools-virtual:
       linux-tools-virtual:
       open-vm-tools:
       cloud-guest-utils:
       cloud-initramfs-copymods:
       cloud-initramfs-dyn-netconf:
+    package-x86:
+      linux-cloud-tools-virtual:
   scaleway:
     service:
     package:
