@@ -239,11 +239,19 @@
   ansible.builtin.shell:
     cmd: |
       journalctl --rotate
+  register: journalctl_rotate
+  retries: 3
+  delay: 300
+  until: journalctl_rotate.rc == 0
 
 - name: Remove archived journalctl logs
   ansible.builtin.shell:
     cmd: |
       journalctl -m --vacuum-time=1s
+  register: journalctl_rm
+  retries: 3
+  delay: 300
+  until: journalctl_rm.rc == 0
 
 - name: Ensure ignition runs on next boot
   ansible.builtin.file:
